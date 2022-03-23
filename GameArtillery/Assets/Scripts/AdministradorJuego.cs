@@ -27,6 +27,13 @@ public class AdministradorJuego : MonoBehaviour
 		set => _VelocidadRotacion = value;
 	}
 	
+	private static bool _Bloqueado = false;
+	public bool Bloqueado
+	{
+		get => _Bloqueado;
+		set => _Bloqueado = value;
+	}
+	
 	void Awake()
 	{
 		if (SingletonAdiministradorJuego == null)
