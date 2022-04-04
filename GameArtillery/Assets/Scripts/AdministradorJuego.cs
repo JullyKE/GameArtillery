@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AdministradorJuego : MonoBehaviour
 {
 	public static AdministradorJuego SingletonAdiministradorJuego;
+	
+	public GameObject canvasOver;
+	public GameObject canvasWin;
 	
 	private static int _VelocidadBala = 30;
 	public int VelocidadBala
@@ -44,5 +48,21 @@ public class AdministradorJuego : MonoBehaviour
 		{
 			Debug.Log("Ya existe una instancia de esta clase");
 		}
+	}
+	
+	public void GanaraJuego()
+	{
+		canvasWin.SetActive(true);
+		Invoke("MenuGame", 3);
+	}
+	public void PerderJuego()
+	{
+		canvasOver.SetActive(true);
+		Invoke("MenuGame", 3);
+	}
+	
+	void MenuGame()
+	{
+		SceneManager.LoadScene("Menu");
 	}
 }
